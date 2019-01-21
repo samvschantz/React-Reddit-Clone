@@ -18,7 +18,7 @@
   display: inline-block;
   margin-left: 40px;
   margin-bottom: 10px;
-  font-family: lobster;
+  font-family: Lobster, cursive;
 }
 
 body {
@@ -27,4 +27,17 @@ body {
 
 .plusSign {
   height: 20px;
+  margin-right: 20px;
+}
+
+.addLink {
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  float: right;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+
+.addLink p {
+  display: inline;
 }
