@@ -2,3 +2,29 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.whaleLogo {
+  max-height: 75px;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.mainNav {
+  background-color: #c7fcc9;
+}
+
+.siteName {
+  font-size: 2rem;
+  display: inline-block;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-family: lobster;
+}
+
+body {
+  margin: 0px;
+}
+
+.plusSign {
+  height: 20px;
+}
