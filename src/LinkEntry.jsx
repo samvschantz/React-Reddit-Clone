@@ -15,11 +15,11 @@ export const LinkEntry = props => {
           </p>
           <form onSubmit={evt => props.onLinkSubmit(evt)}>
             <input
-              placeholder="Enter title"
+              placeholder="Enter a title for your content"
               onChange={evt => props.onTitleInput(evt)}
             />
             <input
-              placeholder="Paste link"
+              placeholder="Paste link to content here"
               onChange={evt => props.onLinkInput(evt)}
             />
             <button type="submit">Submit</button>

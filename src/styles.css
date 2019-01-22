@@ -66,7 +66,12 @@ body {
 }
 
 input::placeholder {
-  color: white;
+  color: rgba(168, 168, 168, 0.5);
+  font-style: italic;
+}
+
+.linkEntry form {
+  overflow-x: hidden;
 }
 
 .cancelDiv {
@@ -157,6 +162,7 @@ input::placeholder {
   font-size: 20px;
   margin-bottom: 10px;
   padding: 5px;
+  width: 100%;
 }
 
 .linkEntry input:focus {
