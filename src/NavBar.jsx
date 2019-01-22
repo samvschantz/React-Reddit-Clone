@@ -7,7 +7,7 @@ export const NavBar = props => {
     <nav className="mainNav">
       <img src={whale_logo} alt="Whale Logo" className="whaleLogo" />
       <p className="siteName">whalewhalewhale</p>
-      <div className="addLink">
+      <div className="addLink" onClick={() => props.onAddLink()}>
         <img src={plus_sign} alt="Plus sign" className="plusSign" />
         <p>add a link</p>
       </div>

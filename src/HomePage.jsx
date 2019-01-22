@@ -7,15 +7,21 @@ export default class HomePage extends Component {
     super(props);
 
     this.state = {
-      addLink: true
+      addLink: false
     };
+
+    this.onAddLink = this.onAddLink.bind(this);
+  }
+
+  onAddLink() {
+    this.setState({ addLink: true });
   }
 
   render() {
     return (
       <div>
-        <NavBar />
-        <LinkEntry />
+        <NavBar onAddLink={this.onAddLink} />
+        <LinkEntry addLink={this.state.addLink} />
       </div>
     );
   }
