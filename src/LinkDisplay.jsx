@@ -5,7 +5,7 @@ export const LinkDisplay = props => {
   let displayedLinks = <div />;
   if (props.links) {
     displayedLinks = props.links.map((link, i) => (
-      <div className="displayedLink" key={i}>
+      <div className="displayedLink">
         <div className="votingBlock">
           <img
             className="upvote"
@@ -22,7 +22,9 @@ export const LinkDisplay = props => {
           />
         </div>
         <a href={link.link}>
-          <div className="linkTitle">{link.title}</div>
+          <div className="linkInfo" key={i}>
+            <div className="linkTitle">{link.title}</div>
+          </div>
           <div className="linkLink">links to: {link.link}</div>
         </a>
       </div>

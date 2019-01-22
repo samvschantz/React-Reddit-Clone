@@ -100,7 +100,8 @@ export default class HomePage extends Component {
     evt.preventDefault();
     const newLink = {
       title: this.state.title,
-      link: this.state.link
+      link: this.state.link,
+      votes: 0
     };
 
     let newArray = [newLink, ...this.state.links];
