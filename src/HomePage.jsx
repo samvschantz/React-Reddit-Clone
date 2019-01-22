@@ -106,7 +106,10 @@ export default class HomePage extends Component {
 
     let newArray = [newLink, ...this.state.links];
 
-    this.setState({ links: newArray });
+    this.setState({
+      links: newArray,
+      addLink: false
+    });
   }
 
   render() {

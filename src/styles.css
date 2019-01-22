@@ -119,18 +119,19 @@ body {
 }
 
 .linkLink {
-  color: #979797;
+  color: #5e5e5e;
   float: right;
   margin-top: 0px;
   font-size: 12px;
+  margin-right: 20px;
 }
 
 .displayedLink:nth-child(odd) {
-  background-color: #ebebeb;
+  background-color: #f0f0f0;
 }
 
 .displayedLink:nth-child(even) {
-  background-color: #c9c9c9;
+  background-color: #dbdbdb;
 }
 
 .linkInfo {
@@ -139,6 +140,6 @@ body {
 
 .displayedLink a {
   position: absolute;
-  width: 100%;
+  width: calc(100% - 42.5px);
   height: 69px;
 }
