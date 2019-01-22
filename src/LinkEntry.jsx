@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 export const LinkEntry = props => {
-  let linkEntryForm = <div />;
-
+  let LinkEntryForm = <div />;
+  console.log(props);
   if (props.addLink) {
-    linkEntryForm = (
+    LinkEntryForm = (
       <div>
         <form>
           <input placeholder="Enter title" />
@@ -14,5 +14,5 @@ export const LinkEntry = props => {
     );
   }
 
-  return <div>{mainNav}</div>;
+  return <div>{LinkEntryForm}</div>;
 };
