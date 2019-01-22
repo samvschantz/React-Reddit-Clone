@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import cancel_button from "./assets/cancel_button.png";
+import cancel_button from "./assets/emptyx.png";
 
 export const LinkEntry = props => {
   let LinkEntryForm = <div />;
