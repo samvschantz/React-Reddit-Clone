@@ -110,6 +110,7 @@ export default class HomePage extends Component {
       links: newArray,
       addLink: false
     });
+    // this.orderLinks();
   }
 
   render() {
