@@ -76,3 +76,22 @@ body {
 .cancelDiv img {
   max-height: 20px;
 }
+
+.votingBlock {
+  display: inline-block;
+}
+
+.votingBlock img {
+  max-height: 20px;
+}
+
+.downvote {
+  transform: rotate(180deg);
+  margin-left: 0.5px;
+}
+
+.upvote,
+.downvote {
+  cursor: pointer;
+  display: block;
+}

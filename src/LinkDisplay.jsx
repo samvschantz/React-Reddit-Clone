@@ -1,18 +1,29 @@
 import React, { Component } from "react";
-import { Arrow } from "./assets/arrow.png";
+import arrow from "./assets/arrow.png";
 
 export const LinkDisplay = props => {
   let displayedLinks = <div />;
-  console.log(props);
-  console.log(props.links);
   if (props.links) {
     displayedLinks = props.links.map((link, i) => (
       <div className="displayedLink" key={i}>
+        {link.votes}
         <div className="votingBlock">
-          <img className="upvote" src="" alt="" />
-          <img className="downvote" src="" alt="" />
+          <img
+            className="upvote"
+            src={arrow}
+            alt="Upvote"
+            onClick={() => props.upvote(link)}
+          />
+          <img
+            className="downvote"
+            src={arrow}
+            alt="Downvote"
+            onClick={() => props.downvote(link)}
+          />
         </div>
-        <a>{link.title}</a>
+        <a href={link.link}>
+          {link.title}(links to: {link.link})
+        </a>
       </div>
     ));
   }
