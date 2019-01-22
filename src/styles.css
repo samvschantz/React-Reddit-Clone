@@ -11,6 +11,7 @@
 
 .mainNav {
   background-color: #c7fcc9;
+  border-bottom: 2px solid #979797;
 }
 
 .siteName {
@@ -79,6 +80,8 @@ body {
 
 .votingBlock {
   display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .votingBlock img {
@@ -94,4 +97,27 @@ body {
 .downvote {
   cursor: pointer;
   display: block;
+}
+
+.displayedLink {
+  font-family: Roboto;
+  border-bottom: 2px solid #979797;
+}
+
+.numVotes {
+  margin-left: 6px;
+}
+
+.linkTitle {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.linkLink {
+  color: #979797;
+  float: right;
+  margin-top: 0px;
+  font-size: 12px;
 }
