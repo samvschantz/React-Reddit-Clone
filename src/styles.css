@@ -12,6 +12,7 @@
 .mainNav {
   background-color: #c7fcc9;
   border-bottom: 2px solid #979797;
+  font-family: Roboto, sans-serif;
 }
 
 .siteName {
@@ -36,9 +37,7 @@ body {
   cursor: pointer;
   display: flex;
   font-family: Roboto, sans-serif;
-  float: right;
-  margin-top: 30px;
-  margin-right: 40px;
+  margin-top: 8px;
   border: 2px solid black;
   padding: 10px 10px 6px 10px;
   border-radius: 20px;
@@ -193,4 +192,15 @@ input::placeholder {
   width: 100vw;
   position: absolute;
   background-color: rgba(100, 100, 100, 0.8);
+}
+
+.rightSide {
+  display: grid;
+  float: right;
+  margin-right: 40px;
+}
+
+.login {
+  margin: 10px auto 0px auto;
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavBar } from "./NavBar";
 import { LinkEntry } from "./LinkEntry";
+import { LoginForm } from "./LoginForm";
 import { LinkDisplay } from "./LinkDisplay";
 
 export default class HomePage extends Component {
@@ -9,27 +10,38 @@ export default class HomePage extends Component {
 
     this.state = {
       addLink: false,
+      login: false,
+      user: {
+        userName: "",
+        userPass: ""
+      },
       links: [
         {
           votes: 3,
           link: "https://www.britannica.com/animal/humpback-whale",
-          title: "Humpback"
+          title: "Humpbacks are dope"
         },
         {
           votes: 1,
           link:
             "https://www.nationalgeographic.com/animals/mammals/g/gray-whale/",
-          title: "Grey Whale"
+          title: "Grey Whales are clearly the superior whale"
         },
         {
           votes: 0,
           link: "www.reddit.com",
           title: "Couldn't you just make a subreddit for this?"
+        },
+        {
+          votes: 8,
+          link: "https://en.wikipedia.org/wiki/Blue_whale",
+          title: "The King of Whales (Blue Whale!!!)"
         }
       ]
     };
 
     this.onAddLink = this.onAddLink.bind(this);
+    this.onLogin = this.onLogin.bind(this);
     this.onCancel = this.onCancel.bind(this);
     this.onLinkSubmit = this.onLinkSubmit.bind(this);
     this.onTitleInput = this.onTitleInput.bind(this);
@@ -38,12 +50,23 @@ export default class HomePage extends Component {
     this.downvote = this.downvote.bind(this);
   }
 
+  componentDidMount() {
+    this.orderLinks();
+  }
+
   onAddLink() {
     this.setState({ addLink: true });
   }
 
+  onLogin() {
+    this.setState({ login: true });
+  }
+
   onCancel() {
-    this.setState({ addLink: false });
+    this.setState({
+      addLink: false,
+      login: false
+    });
   }
 
   onLinkInput(evt) {
@@ -52,6 +75,14 @@ export default class HomePage extends Component {
 
   onTitleInput(evt) {
     this.setState({ title: evt.target.value });
+  }
+
+  onUsernameInput(evt) {
+    this.setState({ user: evt.target.value });
+  }
+
+  onPasswordInput(evt) {
+    this.setState({ user: evt.target.value });
   }
 
   orderLinks() {
@@ -117,16 +148,31 @@ export default class HomePage extends Component {
     );
   }
 
+  onLoginSubmit(evt) {
+    evt.preventDefault();
+    const user = {
+      username: this.state.username,
+      password: this.state.userpass
+    };
+  }
+
   render() {
     return (
       <div>
-        <NavBar onAddLink={this.onAddLink} />
+        <NavBar onAddLink={this.onAddLink} onLogin={this.onLogin} />
         <LinkEntry
           onLinkSubmit={this.onLinkSubmit}
           addLink={this.state.addLink}
           onCancel={this.onCancel}
           onLinkInput={this.onLinkInput}
           onTitleInput={this.onTitleInput}
+        />
+        <LoginForm
+          login={this.state.login}
+          onLoginSubmit={this.onLoginSubmit}
+          onUserInput={this.onUserInput}
+          onPasswordInput={this.onPasswordInput}
+          onCancel={this.onCancel}
         />
         <LinkDisplay
           links={this.state.links}
