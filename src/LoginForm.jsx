@@ -13,7 +13,7 @@ export const LoginForm = props => {
           <p className="gentleReminder">
             Log in (Any usr/pwd combo will work this is a dummy form)
           </p>
-          <form onSubmit={evt => props.onLinkSubmit(evt)}>
+          <form onSubmit={evt => props.onLoginSubmit(evt)}>
             <input
               placeholder="Username"
               onChange={evt => props.onUsernameInput(evt)}

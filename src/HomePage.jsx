@@ -12,8 +12,8 @@ export default class HomePage extends Component {
       addLink: false,
       login: false,
       user: {
-        userName: "",
-        userPass: ""
+        username: "",
+        password: ""
       },
       links: [
         {
@@ -44,10 +44,13 @@ export default class HomePage extends Component {
     this.onLogin = this.onLogin.bind(this);
     this.onCancel = this.onCancel.bind(this);
     this.onLinkSubmit = this.onLinkSubmit.bind(this);
+    this.onLoginSubmit = this.onLoginSubmit.bind(this);
     this.onTitleInput = this.onTitleInput.bind(this);
     this.onLinkInput = this.onLinkInput.bind(this);
     this.upvote = this.upvote.bind(this);
     this.downvote = this.downvote.bind(this);
+    this.onUsernameInput = this.onUsernameInput.bind(this);
+    this.onPasswordInput = this.onPasswordInput.bind(this);
   }
 
   componentDidMount() {
@@ -78,11 +81,11 @@ export default class HomePage extends Component {
   }
 
   onUsernameInput(evt) {
-    this.setState({ user: evt.target.value });
+    this.setState({ username: evt.target.value });
   }
 
   onPasswordInput(evt) {
-    this.setState({ user: evt.target.value });
+    this.setState({ userpass: evt.target.value });
   }
 
   orderLinks() {
@@ -154,12 +157,17 @@ export default class HomePage extends Component {
       username: this.state.username,
       password: this.state.userpass
     };
+    this.setState({ user: user });
   }
 
   render() {
     return (
       <div>
-        <NavBar onAddLink={this.onAddLink} onLogin={this.onLogin} />
+        <NavBar
+          onAddLink={this.onAddLink}
+          onLogin={this.onLogin}
+          user={this.state.user}
+        />
         <LinkEntry
           onLinkSubmit={this.onLinkSubmit}
           addLink={this.state.addLink}
@@ -170,7 +178,7 @@ export default class HomePage extends Component {
         <LoginForm
           login={this.state.login}
           onLoginSubmit={this.onLoginSubmit}
-          onUserInput={this.onUserInput}
+          onUsernameInput={this.onUsernameInput}
           onPasswordInput={this.onPasswordInput}
           onCancel={this.onCancel}
         />

@@ -3,7 +3,7 @@ import whale_logo from "./assets/whale_logo.png";
 import plus_sign from "./assets/plus_sign.png";
 
 export const NavBar = props => {
-  const mainNav = (
+  let mainNav = (
     <nav className="mainNav">
       <img src={whale_logo} alt="Whale Logo" className="whaleLogo" />
       <p className="siteName">whalewhalewhale</p>
@@ -18,5 +18,21 @@ export const NavBar = props => {
       </div>
     </nav>
   );
+
+  if (props.user.username !== "") {
+    mainNav = (
+      <nav className="mainNav">
+        <img src={whale_logo} alt="Whale Logo" className="whaleLogo" />
+        <p className="siteName">whalewhalewhale</p>
+        <div className="rightSide">
+          <div className="login">{props.user.username}</div>
+          <div className="addLink" onClick={() => props.onAddLink()}>
+            <img src={plus_sign} alt="Plus sign" className="plusSign" />
+            <p>add a link</p>
+          </div>
+        </div>
+      </nav>
+    );
+  }
   return <div>{mainNav}</div>;
 };

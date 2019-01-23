@@ -58,6 +58,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   border: 2px solid black;
+  pointer-events: auto;
 }
 
 .linkEntry input {
@@ -192,6 +193,7 @@ input::placeholder {
   width: 100vw;
   position: absolute;
   background-color: rgba(100, 100, 100, 0.8);
+  pointer-events: none;
 }
 
 .rightSide {
