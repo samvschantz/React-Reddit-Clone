@@ -19,23 +19,27 @@ export default class HomePage extends Component {
         {
           votes: 3,
           link: "https://www.britannica.com/animal/humpback-whale",
-          title: "Humpbacks are dope"
+          title: "Humpbacks are dope",
+          voted: "up"
         },
         {
           votes: 1,
           link:
             "https://www.nationalgeographic.com/animals/mammals/g/gray-whale/",
-          title: "Grey Whales are clearly the superior whale"
+          title: "Grey Whales are clearly the superior whale",
+          voted: "down"
         },
         {
           votes: 0,
           link: "www.reddit.com",
-          title: "Couldn't you just make a subreddit for this?"
+          title: "Couldn't you just make a subreddit for this?",
+          voted: ""
         },
         {
           votes: 8,
           link: "https://en.wikipedia.org/wiki/Blue_whale",
-          title: "The King of Whales (Blue Whale!!!)"
+          title: "The King of Whales (Blue Whale!!!)",
+          voted: ""
         }
       ]
     };
@@ -139,7 +143,8 @@ export default class HomePage extends Component {
     const newLink = {
       title: this.state.title,
       link: this.state.link,
-      votes: 0
+      votes: 0,
+      voted: ""
     };
 
     let newArray = [newLink, ...this.state.links];
@@ -188,6 +193,7 @@ export default class HomePage extends Component {
         />
         <LinkDisplay
           links={this.state.links}
+          linkVotes={this.state.linkVotes}
           downvote={this.downvote}
           upvote={this.upvote}
         />

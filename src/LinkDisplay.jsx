@@ -6,7 +6,7 @@ export const LinkDisplay = props => {
   if (props.links) {
     displayedLinks = props.links.map((link, i) => (
       <div className="displayedLink" key={i}>
-        <div className="votingBlock">
+        <div className={`votingBlock ${link.voted}`}>
           <img
             className="upvote"
             src={arrow}
