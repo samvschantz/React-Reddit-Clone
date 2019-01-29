@@ -97,14 +97,16 @@ export default class HomePage extends Component {
   upvote(votedLink) {
     let linkObj = {};
     let linkPosition = 0;
-    this.state.links.forEach(function(link, i) {
-      if (link.title === votedLink.title && link.link === votedLink.link) {
-        linkObj = link;
-        let votes = (linkObj.votes += 1);
-        linkObj.votes = votes;
-        linkPosition = i;
-      }
-    });
+    if (this.state.user.username !== "") {
+      this.state.links.forEach(function(link, i) {
+        if (link.title === votedLink.title && link.link === votedLink.link) {
+          linkObj = link;
+          let votes = (linkObj.votes += 1);
+          linkObj.votes = votes;
+          linkPosition = i;
+        }
+      });
+    }
     let removeOldVotes = this.state.links.filter(
       link => link.title !== votedLink.title && link.link !== votedLink.link
     );
@@ -115,14 +117,16 @@ export default class HomePage extends Component {
   downvote(votedLink) {
     let linkObj = {};
     let linkPosition = 0;
-    this.state.links.forEach(function(link, i) {
-      if (link.title === votedLink.title && link.link === votedLink.link) {
-        linkObj = link;
-        let votes = (linkObj.votes -= 1);
-        linkObj.votes = votes;
-        linkPosition = i;
-      }
-    });
+    if (this.state.user.username !== "") {
+      this.state.links.forEach(function(link, i) {
+        if (link.title === votedLink.title && link.link === votedLink.link) {
+          linkObj = link;
+          let votes = (linkObj.votes -= 1);
+          linkObj.votes = votes;
+          linkPosition = i;
+        }
+      });
+    }
     let removeOldVotes = this.state.links.filter(
       link => link.title !== votedLink.title && link.link !== votedLink.link
     );
