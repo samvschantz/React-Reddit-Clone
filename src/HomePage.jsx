@@ -20,14 +20,14 @@ export default class HomePage extends Component {
           votes: 3,
           link: "https://www.britannica.com/animal/humpback-whale",
           title: "Humpbacks are dope",
-          voted: "up"
+          voted: "upArrow"
         },
         {
           votes: 1,
           link:
             "https://www.nationalgeographic.com/animals/mammals/g/gray-whale/",
           title: "Grey Whales are clearly the superior whale",
-          voted: "down"
+          voted: "downArrow"
         },
         {
           votes: 0,
