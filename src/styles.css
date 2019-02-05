@@ -211,3 +211,7 @@ input::placeholder {
   width: 20px;
   height: 20px;
 }
+
+.numVotes {
+  cursor: pointer;
+}

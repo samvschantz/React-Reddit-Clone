@@ -53,6 +53,7 @@ export default class HomePage extends Component {
     this.onLinkInput = this.onLinkInput.bind(this);
     this.upvote = this.upvote.bind(this);
     this.downvote = this.downvote.bind(this);
+    this.unvote = this.unvote.bind(this);
     this.onUsernameInput = this.onUsernameInput.bind(this);
     this.onPasswordInput = this.onPasswordInput.bind(this);
   }
@@ -110,7 +111,11 @@ export default class HomePage extends Component {
         ) {
           linkObj = link;
           let votes = (linkObj.votes += 1);
+          if (link.voted === "downArrow") {
+            votes += 1;
+          }
           linkObj.votes = votes;
+          linkObj.voted = "upArrow";
           linkPosition = i;
         }
       });
@@ -134,7 +139,41 @@ export default class HomePage extends Component {
         ) {
           linkObj = link;
           let votes = (linkObj.votes -= 1);
+          if (link.voted === "upArrow") {
+            votes -= 1;
+          }
           linkObj.votes = votes;
+          linkObj.voted = "downArrow";
+          linkPosition = i;
+        }
+      });
+    }
+    let removeOldVotes = this.state.links.filter(
+      link => link.title !== votedLink.title && link.link !== votedLink.link
+    );
+    this.setState({ links: [...removeOldVotes, linkObj] });
+    this.orderLinks();
+  }
+
+  unvote(votedLink) {
+    let linkObj = {};
+    let linkPosition = 0;
+    if (this.state.user.username !== "") {
+      this.state.links.forEach(function(link, i) {
+        if (
+          link.title === votedLink.title &&
+          link.link === votedLink.link &&
+          link.voted !== ""
+        ) {
+          linkObj = link;
+          let votes = linkObj.votes;
+          if (link.voted === "upArrow") {
+            votes -= 1;
+          } else if (link.voted === "downArrow") {
+            votes += 1;
+          }
+          linkObj.votes = votes;
+          linkObj.voted = "";
           linkPosition = i;
         }
       });
@@ -202,6 +241,7 @@ export default class HomePage extends Component {
         <LinkDisplay
           links={this.state.links}
           linkVotes={this.state.linkVotes}
+          unvote={this.unvote}
           downvote={this.downvote}
           upvote={this.upvote}
         />

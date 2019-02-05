@@ -19,7 +19,9 @@ export const LinkDisplay = props => {
             alt="Upvote"
             onClick={() => props.upvote(link)}
           />
-          <div className="numVotes">{link.votes}</div>
+          <div className="numVotes" onClick={() => props.unvote(link)}>
+            {link.votes}
+          </div>
           <img
             className="downvote"
             src={
