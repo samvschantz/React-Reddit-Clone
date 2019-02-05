@@ -12,7 +12,7 @@ export const LinkDisplay = props => {
           <img
             className="upvote"
             src={
-              link.voted
+              link.voted === "upArrow"
                 ? require(`./assets/${link.voted}.png`)
                 : require(`./assets/arrow.png`)
             }
@@ -23,7 +23,7 @@ export const LinkDisplay = props => {
           <img
             className="downvote"
             src={
-              link.voted
+              link.voted === "downArrow"
                 ? require(`./assets/${link.voted}.png`)
                 : require(`./assets/arrow.png`)
             }
