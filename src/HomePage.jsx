@@ -103,7 +103,11 @@ export default class HomePage extends Component {
     let linkPosition = 0;
     if (this.state.user.username !== "") {
       this.state.links.forEach(function(link, i) {
-        if (link.title === votedLink.title && link.link === votedLink.link) {
+        if (
+          link.title === votedLink.title &&
+          link.link === votedLink.link &&
+          link.voted !== "upArrow"
+        ) {
           linkObj = link;
           let votes = (linkObj.votes += 1);
           linkObj.votes = votes;
@@ -123,7 +127,11 @@ export default class HomePage extends Component {
     let linkPosition = 0;
     if (this.state.user.username !== "") {
       this.state.links.forEach(function(link, i) {
-        if (link.title === votedLink.title && link.link === votedLink.link) {
+        if (
+          link.title === votedLink.title &&
+          link.link === votedLink.link &&
+          link.voted !== "downArrow"
+        ) {
           linkObj = link;
           let votes = (linkObj.votes -= 1);
           linkObj.votes = votes;
@@ -166,7 +174,7 @@ export default class HomePage extends Component {
       username: this.state.username,
       password: this.state.userpass
     };
-    this.setState({ user: user });
+    this.setState({ user: user, login: false });
   }
 
   render() {
